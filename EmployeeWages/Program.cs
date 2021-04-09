@@ -4,16 +4,16 @@ namespace EmployeeWages
 {
     class Program
     {
-        static void Main(string[] args)
-        {
             //constants
-            int FULL_TIME = 1;
-            int PART_TIME = 2;
-            int EMP_RATE_PER_HR = 20;
+           public const int FULL_TIME = 1;
+           public const int PART_TIME = 2;
+           public const int EMP_RATE_PER_HR = 20;
 
-            //local variables
-            int empHrs = 0;
-            int empWage = 0;
+        static void main(string[] args)
+        { 
+               //local variables
+               int empHrs = 0;
+               int empWage = 0;
 
             //inbuilt class
             Random random = new Random();
@@ -21,22 +21,25 @@ namespace EmployeeWages
 
             Console.WriteLine("random value " + empCheck);
             //selection statements
-            if (empCheck == FULL_TIME)
+
+            switch (empCheck)
             {
+                case FULL_TIME:
                 empHrs = 8;
-            }
-            else if(empCheck==PART_TIME)
-            {
-                empWage = 4;
-            }
-            else
-            {
+                 break;
+
+                case PART_TIME:
+                 empHrs = 4;
+                  break;
+             
+                 case default:
                 empHrs = 0;
+                 break;
             }
             //computation
-            empWage = EMP_RATE_PER_HR * empHrs;
-            Console.WriteLine("Employee wage per day " + empWage);
+           empWage = EMP_RATE_PER_HR* empHrs;
+           Console.WriteLine("Employee wage per day " + empWage);
             Console.ReadKey();
-        }
+        
     }
 }
