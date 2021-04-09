@@ -9,6 +9,7 @@ namespace EmployeeWages
         public const int PART_TIME = 2;
         public const int EMP_RATE_PER_HR = 20;
         public const int WORKING_DAYS = 20;
+        public const int WORKING_HRS = 20;
 
         static void main(string[] args)
         {
@@ -19,13 +20,10 @@ namespace EmployeeWages
 
             //inbuilt class
             Random random = new Random();
-            for (int day= 0; day< WORKING_DAYS; day++)
+            while (hrs < MAX_WORKING_HRS && workingDays<= MAX_WORKING_DAYS)
             {
+                workingDays++;
                 int empCheck = random.Next(0, 3);
-
-               // Console.WriteLine("random value " + empCheck);
-                //selection statements
-
                 switch (empCheck)
                 {
                     case FULL_TIME:
@@ -43,10 +41,12 @@ namespace EmployeeWages
 
                 //computation
                 empWage = EMP_RATE_PER_HR * empHrs;
+                hrs += empHrs;
                 Console.WriteLine("per day employee wage" + empWage);
                 totalEmpWage += empWage;//totalEmpWage = totalEmpWage + empWage
             }
-            Console.WriteLine("Employee wage for 20 days " + totalempWage);
+            Console.WriteLine("Employee wage for  " + workingdays + "days" totalempWage);
+            Console.WriteLine("working hrs" + hrs);
             Console.Read();
         }
 
