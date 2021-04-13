@@ -9,20 +9,20 @@ namespace EmployeeWages
         public const int PART_TIME = 2;
         public const int EMP_RATE_PER_HR = 20;
         public const int WORKING_DAYS = 20;
-        public const int WORKING_HRS = 20;
+        public const int WORKING_HRS = 10;
 
-        static void main(string[] args)
+        public static int ComputeEmpWage()
         {
             //local variables
             int empHrs = 0;
-            int empWage = 0;
-            int totalEmpWage = 0;
+            int totalEmpHrs = 0;
+            int totalWorkingDays = 0;
 
             //inbuilt class
-            Random random = new Random();
-            while (hrs < MAX_WORKING_HRS && workingDays<= MAX_WORKING_DAYS)
+            while (totalEmpHrs < MAX_WORKING_HRS &&totalWorkingDays<= MAX_WORKING_DAYS)
             {
-                workingDays++;
+                totalWorkingDays++;
+                Random random = new Random();
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
@@ -34,22 +34,25 @@ namespace EmployeeWages
                         empHrs = 4;
                         break;
 
-                    case default:
+                    default:
                         empHrs = 0;
                         break;
                 }
 
                 //computation
-                empWage = EMP_RATE_PER_HR * empHrs;
-                hrs += empHrs;
-                Console.WriteLine("per day employee wage" + empWage);
-                totalEmpWage += empWage;//totalEmpWage = totalEmpWage + empWage
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Days:" + totalWorkingDays + "Emp Hrs :" + empHrs);
+               
             }
-            Console.WriteLine("Employee wage for  " + workingdays + "days" totalempWage);
-            Console.WriteLine("working hrs" + hrs);
-            Console.Read();
+            int totalEmpWage = totalEmpHrs * EMP_RATE_PER_HR;
+            Console.WriteLine(" Total Emp wage :" +  totalempWage);
+            return totalEmpWage;
+            
         }
-
+        static void Main(string[] args)
+        {
+            ComputeEmpWage():
+        }
         
     }
 }
